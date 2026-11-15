@@ -1,6 +1,7 @@
 <?php
 return [
 	'name'	=> 'CSF',
+	'site'	=> 'CSFnet',
 	'long'	=> 'Confederation of Southernia Football',
 	'est'	=> 2008,
 	'since'	=> 2012,

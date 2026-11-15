@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=block" rel="stylesheet">
 
 <link rel="stylesheet" href="<?= asset('/css/mod.css') ?>">
+<link rel="stylesheet" href="<?= asset('/css/team.css') ?>">
 <?php if (!empty($route['landing'])): ?>
 <link rel="stylesheet" href="<?= asset('/css/home.css') ?>">
 <?php endif; ?>

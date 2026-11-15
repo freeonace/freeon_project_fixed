@@ -22,8 +22,8 @@ return [
 			'world-cup' => 'World Cup', 'csf-sl' => 'CSF Super League', 'csf-c' => 'CSF Cup', 'csf-sc' => 'CSF Super Cup',
 		],
 		'database'	=> [
-			'team' => 'Team', 'player' => 'Player',
-			'fixture' => 'Fixture', 'league' => 'League', 'transfer' => 'Transfer',
+			'teams' => 'Teams', 'players' => 'Players',
+			'fixtures' => 'Fixtures', 'leagues' => 'Leagues', 'transfers' => 'Transfers',
 		],
 		'shop'			=> [],
 

@@ -1,4 +1,4 @@
-<header class="sticky-top shadow-lg">
+<header class="sticky-top shadow">
 	<nav class="navbar">
 		<div class="lg:container">
 			<a class="navbar-brand" data-first="<?= e(site('name')) ?>" data-second="net" aria-label="CSFnet" href="<?= e(home_url()) ?>"></a>

@@ -32,5 +32,5 @@
 		<?php endforeach; ?>
 		</div>
 	</div>
-	<span class="fg-2">Version <?= e(site('version')) ?></span>
+	<span class="badge theme-primary">Version <?= e(site('version')) ?></span>
 </section>
