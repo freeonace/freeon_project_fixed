@@ -11,7 +11,7 @@ $uri   = trim($_GET['route'] ?? '', '/');
 if ($uri === '') {
 	$route = [
 		'section'	=> 'landing', 'page' => null, 'group' => null,
-		'file'		=> APP . '/pages/landing.php', 'title' => 'Confederation of Southernia Football Official Websites',
+		'file'		=> APP . '/pages/landing.php', 'title' => 'Southernia Football Official Website',
 		'landing'	=> true,
 	];
 } else {
@@ -29,7 +29,7 @@ if ($route === null) {
 $section = $route['section'];
 $page    = $route['page'];
 $title   = $route['title'];
-$subs    = $route['group'] ? $menu['groups'][$route['group']] : [];   // landing: tanpa sub-nav
+$subs    = $route['group'] ? $menu['groups'][$route['group']] : [];
 
 $args    = $route['args'] ?? [];
 $content = render_page($route['file'], compact('menu', 'section', 'page', 'args'));

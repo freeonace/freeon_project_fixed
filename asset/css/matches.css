@@ -1,0 +1,20 @@
+.match-card {
+	text-decoration: none;
+	padding: 1rem;
+
+	.row {
+		height: 100%;
+		text-align: center;
+		align-items: center;
+	}
+}
+
+.match-card.elite-league {
+	border: solid var(--bs-border-width) transparent;
+	border-radius: var(--bs-radius-5) 0 var(--bs-radius-5);
+	color: ;
+
+	background-image: 
+		url('../asset/img/bg/elite-league.png') center/cover no-repeat padding-box,
+		linear-gradient(to right, var(--match-home) 50%, var(--match-away) 50%) border-box;
+}

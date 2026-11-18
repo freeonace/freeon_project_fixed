@@ -4,7 +4,7 @@
 			<div class="d-flex flex-column gap-9">
 				<div class="d-flex flex-wrap justify-content-between align-items-center gap-5">
 					<div class="d-flex flex-column">
-						<a class="footer-brand" data-first="<?= e(site('name')) ?>" data-second="net" aria-label="CSFnet" href="<?= e(home_url()) ?>"style="font-size: 2.5rem;"></a>
+						<a class="footer-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(site_sub() ?? site('site')) ?>" aria-label="<?= e(site('name')).e(site_sub() ?? site('site')) ?>" href="<?= e(home_url()) ?>"style="font-size: 2.5rem;"></a>
 						<small><?= e(site('assoc')) ?> &middot; Official Website</small>
 					</div>
 					<div class="footer-social">
@@ -15,11 +15,11 @@
 					</div>
 				</div>
 				<div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-					<small><b>&copy;<?= site('since') ?>&ndash;<?= date('Y') ?> <?= e(site('name')) ?></b>. All rights reserved.</small>
+					<small><b>&copy;<?= site('since') ?>&ndash;<?= date('Y') ?> <?= e(site('name')).e(site('site')) ?></b>. All rights reserved.</small>
 					<small class="d-flex align-items-center gap-4">
-						<a href="<?= url('home','about') ?>">About</a>
-						<a href="<?= url('home','privacy') ?>">Privacy</a>
 						<a href="<?= url('home') ?>">Home</a>
+						<a href="<?= url('competition') ?>">Competition</a>
+						<a href="<?= url('database') ?>">Database</a>
 					</small>
 				</div>
 			</div>

@@ -60,3 +60,15 @@ function page_title(?string $set = null): ?string {
 	if ($set !== null) $t = $set;
 	return $t;
 }
+
+function page_theme(?string $set = null): string {
+	static $t = 'default';
+	if ($set !== null) $t = $set;
+	return $t;
+}
+
+function site_sub(?string $set = null): ?string {
+	static $t = null;
+	if ($set !== null) $t = $set;
+	return $t;
+}

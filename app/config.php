@@ -1,8 +1,8 @@
 <?php
 return [
-	'name'	=> 'CSF',
-	'site'	=> 'CSFnet',
-	'long'	=> 'Confederation of Southernia Football',
+	'name'	=> 'SFC',
+	'site'	=> 'net',
+	'long'	=> 'Southernia Football Confederation',
 	'est'	=> 2008,
 	'since'	=> 2012,
 	'assoc'	=> 'Southernia Club Association',

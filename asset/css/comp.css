@@ -1,0 +1,28 @@
+.competition-card.nations-cup,
+.competition-card.continental-cup,
+.competition-card.challenge-cup,
+.competition-card.champions-cup {
+	--comp-color: light-dark(color-mix(in srgb, white 80%, var(--comp-var)),
+							 color-mix(in srgb, black 76%, var(--comp-var)));
+	--comp-fg: light-dark(color-mix(in srgb, black 64%, var(--comp-var)),
+						  color-mix(in srgb, white 80%, var(--comp-var)));
+	
+	background: var(--comp-color);
+	border: solid
+			var(--bs-border-width)
+			color-mix(in srgb, var(--bs-fg-4) 75%, var(--comp-var));
+
+	.material-symbols-outlined {
+		color: color-mix(in srgb, var(--body-fg) 50%, var(--comp-var));
+	}
+
+	.competition-card-footer {
+		border-top: solid
+					var(--bs-border-width)
+					color-mix(in srgb, var(--bs-fg-4) 75%, var(--comp-var));
+	}
+
+	.comp-sub {
+		color: color-mix(in srgb, var(--bs-fg-1) 50%, var(--comp-var));
+	}
+}

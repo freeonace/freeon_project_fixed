@@ -1,3 +1,41 @@
 .card-team {
 	position: relative;
+	border-radius: .25rem;
+	text-decoration: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: .5rem;
+
+	.card-team-img {
+		display: grid;
+		place-items: center;
+	}
+
+	.card-team-logo {
+		width: clamp(2.5rem, 2.5rem + 3.5vw, 5rem);
+		aspect-ratio: 1/1;
+	}
+
+	.card-team-label {
+		min-height: clamp(2.5rem, 1.75rem + 2.5vw, 5rem);
+		padding: 1rem;
+	}
+
+	.card-team-info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.card-team-name {
+		font-weight: 500;
+		font-size: 1.25rem;
+		line-height: 1;
+		margin-bottom: .5rem;
+	}
+
+	.card-team-stadium, .card-team-city {
+		font-size: 0.875rem;
+		line-height: 1.25; 
+	}
 }

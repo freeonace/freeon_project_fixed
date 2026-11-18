@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <title><?= e($title) ?> | <?= e(site('name')) ?></title> -->
-<title><?= e(page_title() ?? $title) ?> | <?= e(site('name')) ?></title>
+<title><?= e(page_title() ?? $title) ?> | <?= e(site('name').('site')) ?></title>
 <link rel="icon" type="image/x-icon" href="<?= asset('favicon.ico') ?>" sizes="any">
 
 <script>
@@ -30,6 +30,8 @@
 
 <link rel="stylesheet" href="<?= asset('/css/mod.css') ?>">
 <link rel="stylesheet" href="<?= asset('/css/team.css') ?>">
+<link rel="stylesheet" href="<?= asset('/css/matches.css') ?>">
+<link rel="stylesheet" href="<?= asset('/css/comp.css') ?>">
 <?php if (!empty($route['landing'])): ?>
 <link rel="stylesheet" href="<?= asset('/css/home.css') ?>">
 <?php endif; ?>

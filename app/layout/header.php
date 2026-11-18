@@ -1,7 +1,7 @@
-<header class="sticky-top shadow">
+<header class="sticky-top" style="z-index: 2000;">
 	<nav class="navbar">
 		<div class="lg:container">
-			<a class="navbar-brand" data-first="<?= e(site('name')) ?>" data-second="net" aria-label="CSFnet" href="<?= e(home_url()) ?>"></a>
+			<a class="navbar-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(site_sub() ?? site('site')) ?>" aria-label="<?= e(site('name')).e(site_sub() ?? site('site')) ?>" href="<?= e(home_url()) ?>"></a>
 			<div>
 				<ul class="nav nav-underline">
 				<?php foreach ($menu['sections'] as $key => $sec):
@@ -13,7 +13,7 @@
 					<li class="nav-item">
 						<a class="nav-link<?= $on ? ' active' : '' ?><?= $off ? ' disabled' : '' ?>"
 						<?= $on ? 'aria-current="' . ($page === null ? 'page' : 'true') . '"' : '' ?>
-						<?= $off ? 'aria-disabled="true" tabindex="-1"' : 'href="' . url($to) . '"' ?>><?= e($sec['name']) ?></a>
+						<?= $off ? 'aria-disabled="true" tabindex="-1"' : 'href="' . url($to) . '"' ?> aria-label="<?= e($sec['name']) ?>"><?= e($sec['name']) ?></a>
 					</li>
 				<?php endforeach ?>
 				</ul>
@@ -46,7 +46,7 @@
 						<a class="nav-link<?= $on ? ' active' : '' ?>"
 							<?= $on ? 'aria-current="page"' : '' ?>
 							href="<?= url($section, $key) ?>"
-							title="<?= e($label) ?>"><?= e($label) ?>
+							aria-label="<?= e($label) ?>"><?= e($label) ?>
 						</a>
 					</li>
 				<?php endforeach; ?>

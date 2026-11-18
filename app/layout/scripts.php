@@ -87,6 +87,67 @@
 </script>
 
 <!--<script>
+	const explorer = document.getElementById('competitionExplorer');
+	const cards = [...document.querySelectorAll('.competition-card')];
+	const panel = document.getElementById('competitionPanel');
+	const closeButton = document.getElementById('closeCompetition');
+
+	const panelContents = [...panel.querySelectorAll('[data-panel-content]')];
+	const desktop = window.matchMedia('(min-width: 768px)');
+
+	function animateLayout(open) {
+		const first = cards.map(card => card.getBoundingClientRect());
+		explorer.classList.toggle('is-open', open);
+		const last = cards.map(card => card.getBoundingClientRect());
+		cards.forEach((card, i) => {
+			const dx = first[i].left - last[i].left;
+			const dy = first[i].top - last[i].top;
+			const sx = first[i].width / last[i].width;
+			const sy = first[i].height / last[i].height;
+			card.animate([
+				{ transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
+				{ transform: 'none' }
+			], { duration: 700, easing: 'cubic-bezier(.2,.8,.2,1)'}); }); }
+
+		function openCompetition(card) {
+			const target = card.dataset.competition;
+			panelContents.forEach(content => {
+				content.hidden = content.dataset.panelContent !== target; });
+			cards.forEach(item => {
+				const active = item === card;
+				item.classList.toggle('active', active);
+				item.setAttribute('aria-expanded', String(active));
+			});
+			if (!explorer.classList.contains('is-open')) {
+				panel.setAttribute('aria-hidden', 'false');
+				animateLayout(true);
+			}
+		}
+
+		function closeCompetition() {
+			if (!explorer.classList.contains('is-open')) return;
+			cards.forEach(card => {
+				card.classList.remove('active');
+				card.setAttribute('aria-expanded', 'false');
+			});
+			panel.setAttribute('aria-hidden', 'true');
+			animateLayout(false);
+		}
+
+		cards.forEach(card => {
+			card.addEventListener('click', function(e) {
+				if (!desktop.matches) return;
+				e.preventDefault();
+				openCompetition(this);
+			});
+		});
+		closeButton.addEventListener('click', closeCompetition);
+		desktop.addEventListener('change', function(e) {
+			if (!e.matches) { closeCompetition(); }
+	});
+</script>-->
+
+<!--<script>
 	const navWrapper = document.querySelector('.nav-overflow');
 	
 	navWrapper.addEventListener('update.bs.navoverflow', (event) => {
