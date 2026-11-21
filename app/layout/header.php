@@ -1,7 +1,7 @@
 <header class="sticky-top" style="z-index: 2000;">
 	<nav class="navbar">
 		<div class="lg:container">
-			<a class="navbar-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(site_sub() ?? site('site')) ?>" aria-label="<?= e(site('name')).e(site_sub() ?? site('site')) ?>" href="<?= e(home_url()) ?>"></a>
+			<a class="navbar-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(comp_data() ?? site('site')) ?>" aria-label="<?= e(site('name')).e(comp_data() ?? site('site')) ?>" href="<?= e(home_url()) ?>" style="max-width: 45%;"></a>
 			<div>
 				<ul class="nav nav-underline">
 				<?php foreach ($menu['sections'] as $key => $sec):
@@ -19,7 +19,7 @@
 				</ul>
 			</div>
 			<div class="nav-tools">
-				<button type="button" class="btn-menu btn-search">
+				<button type="button" class="btn-menu btn-search" data-bs-toggle="dialog" data-bs-target="#searchDialog">
 					<span class="material-symbols-outlined">search</span>
 				</button>
 
@@ -27,16 +27,25 @@
 					<span class="material-symbols-outlined">settings</span>
 				</button>
 
-				<button type="button" class="btn-sm btn-outline theme-primary rounded-pill">
+				<button type="button" class="btn-sm btn-outline theme-primary rounded-pill btn-user">
 					<div class="d-flex align-items-center gap-3">
 						<span>Log In</span>
 						<span class="material-symbols-outlined">account_circle</span>
 					</div>
 				</button>
+				<button type="button" class="btn-menu btn-user">
+					<span class="material-symbols-outlined">account_circle</span>
+				</button>
 			</div>
 		</div>
 	</nav>
-	<?php if ($subs && (empty($menu['sections'][$section]['hidden']) || $section === 'admin')): ?>
+	<?php
+	$cupNav		= cup_nav();
+	$hideSubs	= ($section === 'competition' && $page !== null);
+	?>
+	<?php if ($cupNav !== null): ?>
+		<?php component('cup-tabs', $cupNav); ?>
+	<?php elseif ($subs && (empty($menu['sections'][$section]['hidden']) || $section === 'admin')): ?>
 	<div class="nav-sub">
 		<div class="lg:container">
 			<div class="nav-overflow" data-bs-toggle="nav-overflow">

@@ -1,6 +1,8 @@
 <?php // app/layout/main.php ?>
+<?php $compdata = comp_data(); ?>
+
 <!DOCTYPE html>
-<html lang="en" data-page-theme="<?= e(page_theme()) ?>">
+<html lang="en" <?= $compdata !== null ? 'data-theme="' . e($compdata) . '"' : '' ?>>
 <head>
 	<?php require __DIR__ . '/head.php'; ?>
 </head>
@@ -36,7 +38,7 @@
 			</small>
 		</div>
 	</dialog>
-	<main data-page-theme="<?= e($pageTheme ?? 'main') ?>"><?= $content ?></main>
+	<main><?= $content ?></main>
 	<button id="btnBackToTop" class="btn-top" title="Back to top">
 		<span class="material-symbols-outlined">keyboard_double_arrow_up</span>
 	</button>

@@ -1,16 +1,25 @@
-.competition-card.nations-cup,
-.competition-card.continental-cup,
-.competition-card.challenge-cup,
-.competition-card.champions-cup {
+.competition-card.nations,
+.competition-card.continental,
+.competition-card.challenge,
+.competition-card.champions {
 	--comp-color: light-dark(color-mix(in srgb, white 80%, var(--comp-var)),
 							 color-mix(in srgb, black 76%, var(--comp-var)));
 	--comp-fg: light-dark(color-mix(in srgb, black 64%, var(--comp-var)),
 						  color-mix(in srgb, white 80%, var(--comp-var)));
 	
-	background: var(--comp-color);
+	background: linear-gradient(
+		to right,
+		var(--comp-color),
+		color-mix(in srgb, var(--body-contrast) 50%, var(--comp-var))
+	);
 	border: solid
 			var(--bs-border-width)
 			color-mix(in srgb, var(--bs-fg-4) 75%, var(--comp-var));
+
+	outline-color: light-dark(
+		color-mix(in srgb, var(--comp-var) 75%, black),
+		color-mix(in srgb, var(--comp-var) 75%, white)
+	);
 
 	.material-symbols-outlined {
 		color: color-mix(in srgb, var(--body-fg) 50%, var(--comp-var));
@@ -23,6 +32,16 @@
 	}
 
 	.comp-sub {
-		color: color-mix(in srgb, var(--bs-fg-1) 50%, var(--comp-var));
+		/*color: color-mix(in srgb, var(--bs-fg-1) 50%, var(--comp-var));*/
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--bs-fg-1) 50%, var(--comp-var)),
+			color-mix(in srgb, var(--bs-fg-4) 50%, var(--comp-var))
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		color: transparent;
+		display: inline-block;
 	}
 }

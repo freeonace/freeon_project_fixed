@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <title><?= e($title) ?> | <?= e(site('name')) ?></title> -->
-<title><?= e(page_title() ?? $title) ?> | <?= e(site('name').('site')) ?></title>
+<title><?= e(page_title() ?? $title) ?> | <?= e(site('name').site('site')) ?></title>
 <link rel="icon" type="image/x-icon" href="<?= asset('favicon.ico') ?>" sizes="any">
 
 <script>

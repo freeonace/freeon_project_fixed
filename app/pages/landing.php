@@ -1,7 +1,7 @@
 <section class="landing">
 	<div class="text-center d-flex flex-column">
 		<div class="d-flex flex-column gap-3">
-			<h1 class="text-4xl">Welcome to <span class="logo-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(site_sub() ?? site('site')) ?>" aria-label="<?= e(site('name')).e(site_sub() ?? site('site')) ?>"></span></h1>
+			<h1 class="text-4xl">Welcome to <span class="logo-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(site('site')) ?>" aria-label="<?= e(site('name')).e(site('site')) ?>"></span></h1>
 			<span class="fg-2 fs-lg lh-1">The digital home of <?= e(site('conti')) ?> Football Universe.</span>
 			<small class="fg-2 lh-1">Explore football database, competititon, and more.</small>
 		</div>

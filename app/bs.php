@@ -3,6 +3,8 @@ define('APP', __DIR__);
 define('BASE_URL', rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/'));
 require __DIR__ . '/db.php';
 require __DIR__ . '/data/users.php';
+require __DIR__ . '/data/teams.php';
+require __DIR__ . '/data/competitions.php';
 
 function component(string $name, array $vars = []): void {
 	$file = APP . '/components/' . $name . '.php';
@@ -61,14 +63,18 @@ function page_title(?string $set = null): ?string {
 	return $t;
 }
 
-function page_theme(?string $set = null): string {
-	static $t = 'default';
+function comp_data(?string $set = null): ?string {
+	static $t = null;
 	if ($set !== null) $t = $set;
 	return $t;
 }
 
-function site_sub(?string $set = null): ?string {
+function cup_nav(?array $set = null): ?array {
 	static $t = null;
 	if ($set !== null) $t = $set;
 	return $t;
+}
+
+function team_logo(int $id): string {
+	return BASE_URL . '/asset/img/team/' . sprintf('id_%05d', $id) . '.png';
 }

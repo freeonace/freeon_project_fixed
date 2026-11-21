@@ -27,12 +27,4 @@
 			'file'    => $file,
 			'title'   => $menu['sections'][$section]['name'] . ($page ? ' - ' . $subs[$page] : ''),
 		];
-
-		$pageTheme = match ($route['name']) {
-			'competition.nations-cup'     => 'national',
-			'competition.continental-cup' => 'continental',
-			'competition.challenge-cup'   => 'challenge',
-			'competition.champions-cup'   => 'champions',
-			default                       => 'main',
-		};
 	}

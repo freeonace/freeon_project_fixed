@@ -3,7 +3,7 @@
 		<div class="lg:container">
 			<a class="navbar-brand" data-first="<?= e(site('name')) ?>" data-second="<?= e(site('site')) ?>" aria-label="<?= e(site('name')) ?><?= e(site('site')) ?>" href="<?= e(home_url()) ?>"></a>
 			<div class="nav-tools">
-				<button type="button" class="btn-menu btn-search">
+				<button type="button" class="btn-menu btn-search" data-bs-toggle="dialog" data-bs-target="#searchDialog">
 					<span class="material-symbols-outlined">search</span>
 				</button>
 

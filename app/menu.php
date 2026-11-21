@@ -19,7 +19,7 @@ return [
 			'about' => 'About', 'association' => 'Association', 'news' => 'News'
 		],
 		'competition'	=> [
-			'nations-cup' => 'Nations Cup', 'continental-cup' => 'Continental Cup', 'challenge-cup' => 'Challenge Cup', 'champions-cup' => 'Champions Cup',
+			'nations' => 'Nations', 'continental' => 'Continental', 'challenge' => 'Challenge', 'champions' => 'Champions',
 		],
 		'database'	=> [
 			'teams' => 'Teams', 'players' => 'Players', 'fixtures' => 'Fixtures', 'leagues' => 'Leagues', 'transfers' => 'Transfers', 'coaches' => 'Coaches',
@@ -33,10 +33,10 @@ return [
 
 	'meta' => [
 		'competition' => [
-			'nations-cup'		=> ['id' => 5, 'title' => 'SFC Nations Cup',     'tier' => 'National Major Competition', 'var' => '2457C5'],
-			'continental-cup'	=> ['id' => 1, 'title' => 'SFC Continental Cup', 'tier' => '1-Tier Major Competition',   'var' => '6245C5'],
-			'challenge-cup'		=> ['id' => 2, 'title' => 'SFC Challenge Cup',   'tier' => '2-Tier Major Competition',   'var' => '657D2D'],
-			'champions-cup'		=> ['id' => 3, 'title' => 'SFC Champions Cup',   'tier' => 'Honour Major Competition',   'var' => '699BB1'],
+			'nations'		=> ['id' => 5, 'title' => 'SFC Nations Cup',     'tier' => 'National Major Competition', 'var' => '2457C5'],
+			'continental'	=> ['id' => 1, 'title' => 'SFC Continental Cup', 'tier' => '1-Tier Major Competition',   'var' => '6245C5'],
+			'challenge'		=> ['id' => 2, 'title' => 'SFC Challenge Cup',   'tier' => '2-Tier Major Competition',   'var' => '657D2D'],
+			'champions'		=> ['id' => 3, 'title' => 'SFC Champions Cup',   'tier' => 'Honour Major Competition',   'var' => '699BB1'],
 		],
 
 		'database' => [
@@ -50,11 +50,11 @@ return [
 	],
 	
 	'args' => [
-		'database/league'		=> 3,
-		'database/team'			=> 3,
-		'database/player'		=> 3,
-		'database/coach'		=> 3,
-		'database/fixture'		=> 4,
+		'database/leagues'		=> 3,
+		'database/teams'		=> 3,
+		'database/players'		=> 3,
+		'database/coaches'		=> 3,
+		'database/fixtures'		=> 4,
 	],
 
 	// Perubahan menu saat admin login (lihat menu_for_user() di data/users.php).
