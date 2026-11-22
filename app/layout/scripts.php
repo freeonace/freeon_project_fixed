@@ -86,6 +86,103 @@
 	});
 </script>
 
+<script>
+(() => {
+	'use strict';
+
+	// huruf kecil + tanpa aksen, jadi "eclair" menemukan "Éclair"
+	const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+	const pick = (sel) => (sel ? document.querySelector(sel) : null);
+
+	const init = (list) => {
+		const items    = [...list.children];
+		const perPage  = parseInt(list.dataset.perPage, 10) || 18;
+		const minChars = parseInt(list.dataset.minChars, 10) || 4;
+		const input    = pick(list.dataset.search);
+		const pager    = pick(list.dataset.pager);
+		const empty    = pick(list.dataset.empty);
+		const status   = pick(list.dataset.status);
+
+		const keys = items.map((el) => norm(el.dataset.search ?? el.textContent));
+		let matches = items.map((_, i) => i);   // indeks item yang lolos pencarian
+		let page = 1;
+
+		const pageItem = (label, { to = null, active = false, disabled = false, aria = '' } = {}) => {
+			const li = document.createElement('li');
+			li.className = 'page-item' + (active ? ' active' : '') + (disabled ? ' disabled' : '');
+			const a = document.createElement(to !== null && !disabled ? 'a' : 'span');
+			a.className = 'page-link';
+			a.textContent = label;
+			if (a.tagName === 'A') { a.href = '#'; a.dataset.to = to; }
+			if (aria) a.setAttribute('aria-label', aria);
+			if (active) a.setAttribute('aria-current', 'page');
+			li.append(a);
+			return li;
+		};
+
+		const drawPager = (pages) => {
+			if (!pager) return;
+			pager.replaceChildren();
+			if (pages <= 1) return;   // satu halaman saja: pager tidak perlu
+
+			pager.append(pageItem('\u00ab', { to: page - 1, disabled: page === 1, aria: 'Previous' }));
+			let gap = false;
+			for (let p = 1; p <= pages; p++) {
+				if (p !== 1 && p !== pages && Math.abs(p - page) > 1) {
+					if (!gap) pager.append(pageItem('\u2026', { disabled: true }));
+					gap = true;
+					continue;
+				}
+				gap = false;
+				pager.append(pageItem(String(p), { to: p, active: p === page }));
+			}
+			pager.append(pageItem('\u00bb', { to: page + 1, disabled: page === pages, aria: 'Next' }));
+		};
+
+		const render = () => {
+			const pages = Math.max(1, Math.ceil(matches.length / perPage));
+			page = Math.min(Math.max(page, 1), pages);
+
+			const start   = (page - 1) * perPage;
+			const visible = new Set(matches.slice(start, start + perPage));
+			items.forEach((el, i) => { el.hidden = !visible.has(i); });
+
+			if (empty) empty.hidden = matches.length > 0;
+			if (status) {
+				status.textContent = matches.length
+					? `Showing ${start + 1}-${start + visible.size} of ${matches.length}`
+					: 'No results';
+			}
+			drawPager(pages);
+		};
+
+		const applySearch = () => {
+			const q = input ? norm(input.value) : '';
+			const tokens = q.length >= minChars ? q.split(/\s+/) : [];   // < minChars: tampilkan semua
+			matches = [];
+			keys.forEach((k, i) => { if (tokens.every((t) => k.includes(t))) matches.push(i); });
+			page = 1;
+			render();
+		};
+
+		input?.addEventListener('input', applySearch);
+
+		pager?.addEventListener('click', (e) => {
+			const a = e.target.closest('a[data-to]');
+			if (!a) return;
+			e.preventDefault();
+			page = parseInt(a.dataset.to, 10);
+			render();
+			if (list.getBoundingClientRect().top < 0) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+
+		applySearch();   // keadaan awal; juga bila browser memulihkan isi kolom pencarian
+	};
+
+	document.querySelectorAll('[data-paginate]').forEach(init);
+})();
+</script>
+
 <!--<script>
 	const explorer = document.getElementById('competitionExplorer');
 	const cards = [...document.querySelectorAll('.competition-card')];

@@ -1,5 +1,4 @@
 <?php
-page_title('Players');
 ?>
 <section class="players">
 	<div class="lg:container">

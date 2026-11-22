@@ -21,6 +21,11 @@ page_title($team['name']);
 $fallback = BASE_URL . '/asset/img/team/default.png';
 $estYear = substr((string)$team['est'], 0, 4);
 $estYear = ($estYear !== '' && $estYear !== '0000') ? $estYear : null;
+$stadium = trim((string)$team['stadium']);
+$seats   = (int)$team['capacity'] > 0 ? number_format((int)$team['capacity'], 0, ',', '.') : null;
+$estTs  = $estYear !== null ? strtotime((string)$team['est']) : false;
+$estTxt = $estTs ? date('d F Y', $estTs) : null;
+$age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 ?>
 <div class="d-flex flex-column" style="<?= e(team_style($team['color'], $team['subcol'])) ?>">
 	<div class="team-details">
@@ -79,7 +84,62 @@ $estYear = ($estYear !== '' && $estYear !== '0000') ? $estYear : null;
 			</div>
 		</div>
 	</div>
-	<section>
-		<?php require __DIR__ . "/tabs/$tab.php"; ?>
+	<section class="detail lg:container">
+		<div class="row g-5">
+			<div class="col-12 md:col-7 lg:col-7 xl:col-8 order-2 md:order-1">
+				<?php require __DIR__ . "/tabs/$tab.php"; ?>
+			</div>
+			<div class="col-12 md:col-5 lg:col-5 xl:col-4 d-flex flex-column gap-5 order-1 md:order-2">
+				<div class="card card-body">
+					<div class="d-flex flex-column">
+						<span class="team-title">Team informations</span>
+						<div>
+							<p class="text-justify"><?= e($team['name']) ?> is a football club based in <?= e($team['city']) ?>, <?= e($team['region']) ?>. <?= e($team['alt']) ?> competing in the <?= e($team['entity']) ?>. <?= e($team['alt']) ?> established in <?= e(date('d F Y', strtotime($team['est']))) ?>, participating in most of <?= e(site('name')) ?> competitions and leagues since <?= (new DateTime($team['est']))->diff(new DateTime())->y ?> years ago.</p>
+						</div>
+
+						<div class="team-information">
+							<?php if ($stadium !== ''): ?>
+							<span>Stadium</span>
+							<span><?= e($team['stadium']) ?></span>
+							<?php endif; ?>
+
+							<?php if ($seats !== ''): ?>
+							<span>Capacity</span>
+							<span><?= e($seats) ?> seats</span>
+							<?php endif; ?>
+
+							<?php if (trim((string)$team['city']) !== ''): ?>
+							<span>City</span>
+							<span><?= e($team['city']) ?></span>
+							<?php endif; ?>
+
+							<?php if ($estTxt !== null): ?>
+							<span>Founded:</span>
+							<span><?= e($estTxt) ?> (<?= (int)$age ?> Years)</span>
+							<?php endif; ?>
+
+							<span>Club color</span>
+							<div class="d-flex gap-2 align-items-center">
+								<div class="team-color"></div>
+								<div class="team-color-sub"></div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<span class="team-title">Title</span>
+					</div>
+				</div>
+				<div class="card card-body d-none md:d-flex">
+					<span class="team-title">Current season</span>
+					<div class="team-form">
+						<div class="team-form-w">W</div>
+						<div class="team-form-l">L</div>
+						<div class="team-form-d">D</div>
+						<div class="team-form-w">W</div>
+						<div class="team-form-d">D</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </div>

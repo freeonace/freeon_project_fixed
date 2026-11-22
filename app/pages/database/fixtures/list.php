@@ -1,5 +1,4 @@
 <?php
-page_title('Fixtures');
 ?>
 <section class="fixtures">
 	<div class="lg:container">

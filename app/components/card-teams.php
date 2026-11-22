@@ -2,7 +2,7 @@
 // variabel: $t (baris dari teams_by_entities), $fallback (opsional)
 $fallback = $fallback ?? (BASE_URL . '/asset/img/team/default.png');
 ?>
-<div class="card-team" style="<?= e(team_style($t['color'], $t['subcol'])) ?>">
+<div class="card-team" data-search="<?= e($t['name'] . ' ' . $t['short'] . ' ' . $t['city']) ?>" style="<?= e(team_style($t['color'], $t['subcol'])) ?>">
 	<a class="card-team-body" href="<?= e(team_info_url((int)$t['id'], $t['alt'], $t['name'])) ?>">
 		<div class="card-team-img">
 			<img class="card-team-logo" src="<?= e(team_logo((int)$t['id'])) ?>" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='<?= e($fallback) ?>'">
@@ -24,5 +24,13 @@ $fallback = $fallback ?? (BASE_URL . '/asset/img/team/default.png');
 			</div>
 		</div>
 	</a>
-	<div class="card-team-footer">A</div>
+	<div class="card-team-footer">
+		<div class="card-team-league">
+			<div class="badge"><?= e($t['entity']) ?></div>
+		</div>
+		<div class="card-team-divider"></div>
+		<div class="card-team-fav">
+			<span class="fg-3 user-select-none">Coming Soon</span>
+		</div>
+	</div>
 </div>

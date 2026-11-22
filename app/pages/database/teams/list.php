@@ -1,13 +1,14 @@
 <?php
-$perLeague = 2;
-
 $leagues  = team_leagues();
 $byEntity = teams_by_entities(array_column($leagues, 'id'));
 
 $byId = $leagues;
 usort($byId, fn($a, $b) => (int)$a['id'] <=> (int)$b['id']);
 
-page_title('Teams');
+$allTeams = [];
+foreach ($byId as $l) {
+	foreach ($byEntity[(int)$l['id']] ?? [] as $t) $allTeams[] = $t;
+}
 ?>
 <section class="teams">
 	<div class="lg:container">
@@ -40,12 +41,24 @@ page_title('Teams');
 				<div class="col-12 lg:col-9">
 					<div class="tab-content" id="teamTabContent">
 						<div class="tab-pane show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab" tabindex="0">
-							<div class="team-list">
-							<?php foreach ($byId as $l): $teams = array_slice($byEntity[(int)$l['id']] ?? [], 0, $perLeague); if (!$teams) continue; ?>
-								<?php foreach ($teams as $i => $t): ?>
+							<div class="d-flex flex-column gap-5">
+								<div style="display: grid; grid-template-columns: 1fr 4fr; align-items: center; gap: 1rem;">
+									<label for="searchTeam" class="form-label">Search Team</label>
+									<input class="form-control" type="search" id="searchTeam" placeholder="Search..." aria-label="Search Team" autocomplete="off">
+								</div>
+
+								<div class="team-list" data-paginate data-per-page="18" data-min-chars="4" data-search="#searchTeam" data-pager="#teamPager" data-empty="#teamEmpty" data-status="#teamStatus">
+								<?php foreach ($allTeams as $t): ?>
 									<?php component('card-teams', compact('t')); ?>
 								<?php endforeach; ?>
-							<?php endforeach; ?>
+								</div>
+
+								<p class="info-error" id="teamEmpty" hidden>No teams found.</p>
+								<p class="visually-hidden" id="teamStatus" aria-live="polite"></p>
+
+								<nav aria-label="Team Pages">
+									<ul class="pagination pagination-sm theme-primary" id="teamPager"></ul>
+								</nav>
 							</div>
 						</div>
 

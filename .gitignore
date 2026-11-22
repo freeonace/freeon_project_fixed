@@ -1,5 +1,6 @@
 /app/conn.php
 /app/db.php
+/asset/img/team/
 
 *.log
 *.tmp

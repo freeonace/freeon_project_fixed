@@ -4,6 +4,7 @@ define('BASE_URL', rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])
 require __DIR__ . '/db.php';
 require __DIR__ . '/data/users.php';
 require __DIR__ . '/data/teams.php';
+require __DIR__ . '/data/leagues.php';
 require __DIR__ . '/data/competitions.php';
 
 function component(string $name, array $vars = []): void {
@@ -77,4 +78,12 @@ function cup_nav(?array $set = null): ?array {
 
 function team_logo(int $id): string {
 	return BASE_URL . '/asset/img/team/' . sprintf('id_%05d', $id) . '.png';
+}
+
+function league_img(int $id): string {
+	return BASE_URL . '/img/comp/ic_' . sprintf('%04d', $id) . '_a.png';
+}
+
+function nation_fg(int $id): string {
+	return BASE_URL . '/img/flag/in_' . sprintf('%03d', $id) . '.png';
 }

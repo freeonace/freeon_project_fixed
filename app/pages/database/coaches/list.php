@@ -1,5 +1,4 @@
 <?php
-page_title('Coaches');
 ?>
 <section class="coaches">
 	<div class="lg:container">
