@@ -3,6 +3,7 @@ define('APP', __DIR__);
 define('BASE_URL', rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/'));
 require __DIR__ . '/db.php';
 require __DIR__ . '/data/users.php';
+require __DIR__ . '/data/associations.php';
 require __DIR__ . '/data/teams.php';
 require __DIR__ . '/data/leagues.php';
 require __DIR__ . '/data/competitions.php';

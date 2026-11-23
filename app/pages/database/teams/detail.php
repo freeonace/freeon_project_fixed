@@ -85,15 +85,15 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 		</div>
 	</div>
 	<section class="detail lg:container">
-		<div class="row g-5">
+		<div class="row gy-9">
 			<div class="col-12 md:col-7 lg:col-7 xl:col-8 order-2 md:order-1">
 				<?php require __DIR__ . "/tabs/$tab.php"; ?>
 			</div>
-			<div class="col-12 md:col-5 lg:col-5 xl:col-4 d-flex flex-column gap-5 order-1 md:order-2">
-				<div class="card card-body">
+			<div class="col-12 md:col-5 lg:col-5 xl:col-4 order-1 md:order-2">
+				<div class="card card-body gap-6">
 					<div class="d-flex flex-column">
 						<span class="team-title">Team informations</span>
-						<div>
+						<div class="mt-3">
 							<p class="text-justify"><?= e($team['name']) ?> is a football club based in <?= e($team['city']) ?>, <?= e($team['region']) ?>. <?= e($team['alt']) ?> competing in the <?= e($team['entity']) ?>. <?= e($team['alt']) ?> established in <?= e(date('d F Y', strtotime($team['est']))) ?>, participating in most of <?= e(site('name')) ?> competitions and leagues since <?= (new DateTime($team['est']))->diff(new DateTime())->y ?> years ago.</p>
 						</div>
 
@@ -127,16 +127,6 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 					</div>
 					<div>
 						<span class="team-title">Title</span>
-					</div>
-				</div>
-				<div class="card card-body d-none md:d-flex">
-					<span class="team-title">Current season</span>
-					<div class="team-form">
-						<div class="team-form-w">W</div>
-						<div class="team-form-l">L</div>
-						<div class="team-form-d">D</div>
-						<div class="team-form-w">W</div>
-						<div class="team-form-d">D</div>
 					</div>
 				</div>
 			</div>

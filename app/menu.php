@@ -55,6 +55,7 @@ return [
 		'database/players'		=> 3,
 		'database/coaches'		=> 3,
 		'database/fixtures'		=> 4,
+		'home/association'		=> 3,
 	],
 
 	// Perubahan menu saat admin login (lihat menu_for_user() di data/users.php).

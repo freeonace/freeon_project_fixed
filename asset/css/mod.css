@@ -178,6 +178,7 @@ html {
 .detail {
 	padding-block: 2.5rem;
 	transition: padding-block .25s ease;
+
 	@media ( width < 768px ) {
 		padding-block: 1.25rem;
 	}
@@ -644,12 +645,16 @@ header .nav-underline .nav-link:hover,.nav-underline .nav-link:focus {
 			border-radius: .5rem;
 			gap: .25rem;
 			font-size: clamp(.75rem, .5rem + .5vw, 1rem);
+			transition: background .15s ease-in-out;
 
 			&:hover {
-				background: var(--banner-color);
+				background: light-dark(
+					color-mix(in srgb, var(--bg-body) 25%, transparent),
+					color-mix(in srgb, var(--bg-body) 50%, transparent)
+				);
 			}
 
-			&.active, &:active {
+			&.active {
 				background: var(--accent);
 				color: var(--body-contrast);
 				background-image: var(--gradient);
@@ -1141,6 +1146,75 @@ footer {
 		font-weight: 700;
 		color: var(--accent);
 		user-select: none;
+	}
+}
+
+/* Association */
+.assocs-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	column-gap: .75rem;
+	row-gap: 1.25rem;
+	grid-auto-rows: 1fr;
+
+	@media ( width < 576px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media ( width >= 576px ) and ( width < 768px ) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media ( width >= 768px ) and ( width < 1024px ) {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+.assocs {
+	display: flex;
+	flex-direction: column;
+	row-gap: .5rem;
+	text-decoration: none;
+	color: var(--body-fg);
+	text-align: center;
+}
+
+.assocs-card {
+	width: 100%;
+	aspect-ratio: 1;
+	position: relative;
+	container-type: inline-size;
+	overflow: hidden;
+	display: grid;
+	place-items: center;
+	padding: 0;
+	border-radius: .5rem;
+	transition: background .15s ease-in-out;
+
+	&:hover {
+		background: light-dark(
+			color-mix(in srgb, grey 5%, var(--bg-body)),
+			color-mix(in srgb, black 5%, var(--bg-body))
+		);
+	}
+
+	.assocs-img {
+		width: 90%;
+		aspect-ratio: 1/1;
+		display: grid;
+		place-items: center;
+		padding: 0;
+	}
+
+	.assocs-reg {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: clamp(2rem, -1rem + 50.5263cqw, 4rem);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		border: solid var(--bs-border-color) var(--bs-border-width);
+		z-index: 1080;
 	}
 }
 

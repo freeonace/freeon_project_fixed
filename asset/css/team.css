@@ -105,6 +105,7 @@
 	container-type: inline-size;
 
 	color: var(--team-fg);
+	border-bottom: solid var(--team-color-sub);
 
 	.fg-theme {
 		color: var(--team-color-sub);
@@ -138,8 +139,8 @@
 		border: solid var(--team-color-sub) var(--bs-border-width);
 
 		.nav-link {
-			padding: .15rem clamp(0.65rem, 0.45rem + 0.9vw, 1rem);
-			font-size: clamp(0.65rem, 0.45rem + 0.9vw, 1rem);
+			padding: .15rem clamp(0.8rem, 0.5rem + 1.5vw, 1rem);
+			font-size: clamp(0.8rem, 0.5rem + 1.5vw, 1rem);
 			color: color-mix(in srgb, var(--team-fg) 50%, transparent);
 		}
 
@@ -214,46 +215,17 @@
 .team-title {
 	font-size: 1.25rem;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
-	padding-bottom: 1rem;
 	line-height: 1;
+	width: 100%;
 
 	&::after {
 		content: "";
 		width: 100%;
 		height: var(--bs-border-width);
 		background: var(--bs-border-color);
-	}
-}
-
-.team-form {
-	margin-inline: clamp(.5rem, 0rem + .5vw, .75rem);
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	align-items: center;
-	text-align: center;
-	gap: .75rem;
-
-	& .team-form-w, .team-form-d, .team-form-l {
-		width: 100%;
-		aspect-ratio: 2/1;
-		display: grid;
-		place-items: center;
-		border-radius: .5rem;
-		color: white;
-	}
-
-	& .team-form-w {
-		background: green;
-	}
-
-	& .team-form-d {
-		background: grey;
-	}
-
-	& .team-form-l {
-		background: red;
 	}
 }
 
