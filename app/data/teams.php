@@ -15,6 +15,7 @@ function team_by_id(int $id): ?array {
 		'SELECT t.teamID AS id, t.teamName AS name, t.teamShort AS short, t.teamCity AS city, t.teamAlt AS alt, t.teamEst AS est,
 		        t.teamColor AS color, t.teamSubCol AS subcol,
 		        t.teamRegion AS region_id,
+		        t.teamEntity AS entity_id,
 		        r.regionName AS region,
 		        e.entityName AS entity,
 		        s.stadeName  AS stadium, s.stadeCapc AS capacity

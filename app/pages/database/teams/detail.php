@@ -16,6 +16,14 @@ if (($args[1] ?? '') !== team_slug($team['alt'], $team['name']) || ($tab === 'ov
 	exit;
 }
 
+if ((int)$team['entity_id'] === 1) {   // entity tim nasional
+	$assoc = association_by_region((int)$team['region_id']);
+	if ($assoc) {
+		header('Location: ' . assocs_team_url((int)$assoc['id'], $assoc['short'], (int)$team['id'], $team['alt'], $team['name']), true, 302);
+		exit;
+	}
+}
+
 page_title($team['name']);
 
 $fallback = BASE_URL . '/asset/img/team/default.png';
