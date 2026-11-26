@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="<?= asset('/css/team.css') ?>">
 <link rel="stylesheet" href="<?= asset('/css/matches.css') ?>">
 <link rel="stylesheet" href="<?= asset('/css/comp.css') ?>">
+<link rel="stylesheet" href="<?= asset('/css/assocs.css') ?>">
 <?php if (!empty($route['landing'])): ?>
 <link rel="stylesheet" href="<?= asset('/css/home.css') ?>">
 <?php endif; ?>

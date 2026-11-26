@@ -166,6 +166,18 @@ html {
 	aspect-ratio: 1/1;
 }
 
+.flag-sm {
+	width: 1rem;
+}
+
+.flag-md {
+	width: 2rem;
+}
+
+.flag-lg {
+	width: 3rem;
+}
+
 /* Layout */
 .layout {
 	padding-block: 4rem;

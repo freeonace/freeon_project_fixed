@@ -1,0 +1,21 @@
+.assocs-details {
+	padding-block: 2rem;
+}
+
+.assocs-info {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
+.assocs-name {
+	font-weight: 700;
+}
+
+.assocs-region {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+}

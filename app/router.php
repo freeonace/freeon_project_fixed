@@ -1,7 +1,7 @@
 <?php
 	function resolve(array $menu, string $route): ?array {
 		$parts = array_values(array_filter(explode('/', trim($route, '/')), 'strlen'));
-		if (count($parts) > 6) return null;
+		if (count($parts) > 7) return null;
 
 		$section = $parts[0] ?? 'home';
 		$page    = $parts[1] ?? null;
