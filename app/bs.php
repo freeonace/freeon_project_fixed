@@ -50,6 +50,29 @@ function render_page(string $file, array $vars): string {
 
 $GLOBALS['config'] = require __DIR__ . '/config.php';
 
+function nav_items(array $menu, string $section, ?string $page): array {
+	$items = [];
+
+	if (cup_nav() !== null) {
+		foreach ($menu['groups']['competition'] ?? [] as $key => $label) {
+			$items[] = ['href' => url('competition', $key), 'name' => $label,
+						'icon' => $menu['meta']['competition'][$key]['icon'] ?? 'trophy',
+						'on' => $key === $page, 'off' => false, 'cur' => 'page'];
+		}
+		return $items;
+	}
+
+	foreach ($menu['sections'] as $key => $sec) {
+		if (!empty($sec['hidden'])) continue;
+		$to  = $sec['url'] ?? $key;
+		$grp = $menu['sections'][$to]['group'] ?? $sec['group'] ?? '';
+		$off = empty($menu['groups'][$grp]);
+		$items[] = ['href' => url($to), 'name' => $sec['name'], 'icon' => $sec['icon'] ?? '',
+					'on' => !$off && $to === $section, 'off' => $off, 'cur' => $page === null ? 'page' : 'true'];
+	}
+	return $items;
+}
+
 function site(string $key): string {
 	return (string) ($GLOBALS['config'][$key] ?? '');
 }

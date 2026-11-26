@@ -2,4 +2,4 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
-RewriteRule ^favicon\.ico$ assets/favicon.ico [L]
+RewriteRule ^favicon\.ico$ asset/favicon.ico [L]

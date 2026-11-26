@@ -33,10 +33,10 @@ return [
 
 	'meta' => [
 		'competition' => [
-			'nations'		=> ['id' => 5, 'title' => 'SFC Nations Cup',     'tier' => 'National Major Competition', 'var' => '2457C5'],
-			'continental'	=> ['id' => 1, 'title' => 'SFC Continental Cup', 'tier' => '1-Tier Major Competition',   'var' => '6245C5'],
-			'challenge'		=> ['id' => 2, 'title' => 'SFC Challenge Cup',   'tier' => '2-Tier Major Competition',   'var' => '657D2D'],
-			'champions'		=> ['id' => 3, 'title' => 'SFC Champions Cup',   'tier' => 'Honour Major Competition',   'var' => '699BB1'],
+			'nations'		=> ['id' => 5, 'title' => 'SFC Nations Cup',     'tier' => 'National Major Competition', 'var' => '2457C5', 'icon' => 'flag'],
+			'continental'	=> ['id' => 1, 'title' => 'SFC Continental Cup', 'tier' => '1-Tier Major Competition',   'var' => '6245C5', 'icon' => 'public'],
+			'challenge'		=> ['id' => 2, 'title' => 'SFC Challenge Cup',   'tier' => '2-Tier Major Competition',   'var' => '657D2D', 'icon' => 'military_tech'],
+			'champions'		=> ['id' => 3, 'title' => 'SFC Champions Cup',   'tier' => 'Honour Major Competition',   'var' => '699BB1', 'icon' => 'emoji_events'],
 		],
 
 		'database' => [

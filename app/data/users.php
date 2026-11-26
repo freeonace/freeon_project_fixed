@@ -197,5 +197,5 @@ function user_initials(string $name): string {
 }
 
 function user_image_url(array $u): string {
-	return BASE_URL . '/img/avatar/' . rawurlencode((string)$u['image']);
+	return BASE_URL . '/asset/img/avatar/' . rawurlencode((string)$u['image']);
 }

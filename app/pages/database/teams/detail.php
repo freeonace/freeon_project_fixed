@@ -111,7 +111,7 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 							<span><?= e($team['stadium']) ?></span>
 							<?php endif; ?>
 
-							<?php if ($seats !== ''): ?>
+							<?php if ($seats !== null): ?>
 							<span>Capacity</span>
 							<span><?= e($seats) ?> seats</span>
 							<?php endif; ?>

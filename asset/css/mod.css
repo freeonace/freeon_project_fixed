@@ -1160,13 +1160,25 @@ footer {
 	}
 }
 
+.about-banner {
+	display: flex;
+	gap: 1.5rem;
+
+	@media ( width < 768px ) {
+		flex-direction: column;
+	}
+
+	@media ( width >= 768px ) {
+		flex-direction: row;
+	}
+}
+
 .about-card {
 	border: solid var(--bs-border-color) var(--bs-border-width);
 	padding: 0;
 	display: grid;
 	place-items: center;
 	width: 100%;
-	aspect-ratio: 2/1;
 
 	.about-title {
 		font-size: clamp(3rem, 1.5rem + 7.5cqw, 7.5rem);
@@ -1174,6 +1186,14 @@ footer {
 		font-weight: 700;
 		color: var(--accent);
 		user-select: none;
+	}
+
+	@media ( width < 768px ) {
+		aspect-ratio: 2/1;
+	}
+
+	@media ( width >= 768px ) {
+		min-height: 100%;
 	}
 }
 

@@ -40,18 +40,13 @@
 <div class="sticky-bottom">
 	<div class="nav-bottom">
 		<div class="nav-medium">
-		<?php foreach ($menu['sections'] as $key => $sec):
-			if (!empty($sec['hidden'])) continue;
-			$to = $sec['url'] ?? $key;
-			$grp = $menu['sections'][$to]['group'] ?? $sec['group'] ?? '';
-			$off = empty($menu['groups'][$grp]);
-			$on  = !$off && ($to === $section); ?>
-			<a class="navbottom-btn<?= $on ? ' active' : '' ?><?= $off ? ' disabled' : '' ?>" <?= $on ? 'aria-current="' . ($page === null ? 'page' : 'true') . '"' : '' ?><?= $off ? 'aria-disabled="true" tabindex="-1"' : 'href="' . url($to) . '"' ?>>
-				<div class="navbottom-item">
-					<span class="material-symbols-rounded"><?= e($sec['icon']) ?></span>
-					<small class="navbottom-link"><?= e($sec['name']) ?></small>
-				</div>
-			</a>
+		<?php foreach (nav_items($menu, $section, $page) as $it): ?>
+		<a class="navbottom-btn<?= $it['on'] ? ' active' : '' ?><?= $it['off'] ? ' disabled' : '' ?>" <?= $it['on'] ? 'aria-current="' . $it['cur'] . '"' : '' ?><?= $it['off'] ? 'aria-disabled="true" tabindex="-1"' : 'href="' . e($it['href']) . '"' ?>>
+			<div class="navbottom-item">
+				<span class="material-symbols-rounded"><?= e($it['icon']) ?></span>
+				<small class="navbottom-link"><?= e($it['name']) ?></small>
+			</div>
+		</a>
 		<?php endforeach; ?>
 		</div>
 	</div>
