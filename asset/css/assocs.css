@@ -1,5 +1,49 @@
 .assocs-details {
 	padding-block: 2rem;
+	background: var(--assocs-color);
+	color: var(--assocs-fg);
+
+	& .assocs-content {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.5rem;
+	}
+
+	& .nav {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		column-gap: .25rem;
+
+		& .nav-link {
+			padding: .5rem clamp(0.8rem, 0.5rem + 1.5vw, 1rem);
+			font-size: clamp(0.8rem, 0.5rem + 1.5vw, 1rem);
+			background-color: color-mix(
+				in srgb,
+				var(--assocs-color-sub) 15%,
+				var(--assocs-color) 25%
+			);
+			color: color-mix(in srgb, var(--assocs-fg) 75%, transparent);
+			border-radius: 50rem;
+		}
+
+		& .nav-link:hover, & .nav-link:focus {
+			background-color: color-mix(in srgb, var(--assocs-fg) 2.5%, transparent);
+			color: color-mix(in srgb,
+				currentColor 95%,
+				transparent
+			);
+		}
+
+		& .nav-link.active {
+			background-color: var(--assocs-color-sub);
+			color: var(--assocs-fg-sub);
+			font-weight: 600;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 }
 
 .assocs-info {

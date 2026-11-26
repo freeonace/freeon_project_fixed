@@ -17,6 +17,7 @@ function assocs_team_url(int $assocId, ?string $short, int $teamId, ?string $alt
 function association_by_id(int $id): ?array {
 	$st = db()->prepare(
 		'SELECT a.assocsID AS id, a.assocsName AS name, a.assocsShort AS short, a.assocsEst AS est,
+		        a.assocsCol AS color, a.assocsSub AS subcol,
 		        a.assocsRegion AS region_id, r.regionName AS region
 		 FROM association a
 		 JOIN region r ON r.regionID = a.assocsRegion
@@ -62,4 +63,8 @@ function national_team_of(array $assoc, int $teamId): ?array {
 		if ((int)$t['id'] === $teamId) return $t;
 	}
 	return null;
+}
+
+function assocs_style(?string $color, ?string $subcol): string {
+	return color_style($color, $subcol, 'assocs');
 }
