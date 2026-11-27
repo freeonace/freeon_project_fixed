@@ -138,7 +138,7 @@ footer {
 }
 
 .menu-card:not(.disabled):hover {
-	& .symbol, .menu-name {
+	& .symbol {
 		transform: scale(1.15);
 	}
 

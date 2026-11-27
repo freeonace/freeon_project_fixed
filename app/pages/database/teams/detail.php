@@ -136,9 +136,6 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 							</div>
 						</div>
 					</div>
-					<div>
-						<span class="team-title">Title</span>
-					</div>
 				</div>
 			</div>
 		</div>
