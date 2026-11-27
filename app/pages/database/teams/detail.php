@@ -97,10 +97,10 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 	</div>
 	<section class="detail team-content lg:container">
 		<div class="row gy-9">
-			<div class="col-12 md:col-7 lg:col-7 xl:col-8 order-2 md:order-1">
+			<div class="col-12 xl:col-8">
 				<?php require __DIR__ . "/tabs/$tab.php"; ?>
 			</div>
-			<div class="col-12 md:col-5 lg:col-5 xl:col-4 order-1 md:order-2">
+			<div class="col-12 xl:col-4">
 				<div class="card card-body gap-6">
 					<div class="d-flex flex-column">
 						<span class="team-title">Team informations</span>

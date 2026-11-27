@@ -3,7 +3,7 @@
 /* Component */
 :root, :host {
 	--primary-col: light-dark(#B94B3E, #55C9B9);
-	--body-col: light-dark(#F7F8FA, #151C29);
+	--body-col: light-dark(#F7F8FA, #05141f);
 	--navbar-col: light-dark(#24364D, #EAF0F8);
 	--text-sub: light-dark(#ffffff, #000000);
 	--text-col: light-dark(#000000, #ffffff);

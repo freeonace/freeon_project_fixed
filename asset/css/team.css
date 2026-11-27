@@ -1,20 +1,26 @@
 /* List Card */
-.team-content .card {
+:root {
 	--bs-border-color: light-dark(
 		var(--bs-gray-100),
-		color-mix(in srgb, var(--bg-body) 80%, white)
+		color-mix(in srgb, var(--bg-body) 75%, white)
 	);
 
+	--gk-color: light-dark(,);
+	--df-color: light-dark(,);
+	--md-color: light-dark(,);
+	--fw-color: light-dark(,);
+}
+
+.team-content .card {
 	background-color: light-dark(
 		color-mix(in srgb, var(--bg-body) 25%, white),
 		color-mix(in srgb, var(--bg-body) 95%, white)
 	);
 
 	border: none;
-	box-shadow: 0 0 5px color-mix(in srgb, var(--bg-body) 90%, white);
 
 	.table-team td, .table-team th {
-		background-color: transparent;
+		background: none;
 	}
 
 	.table-active {
@@ -191,11 +197,11 @@
 			padding: .15rem 1rem;
 			font-size: 1rem;
 			border-radius: 50rem;
-			color: color-mix(in srgb, var(--team-fg) 50%, transparent);
+			color: color-mix(in srgb, var(--team-fg) 75%, transparent);
 		}
 
 		.nav-link:hover, .nav-link:focus {
-			background-color: rgba(0,0,0, 0.2);
+			background-color: color-mix(in srgb, var(--team-color) 82.5%, black);
 			color: color-mix(in srgb,
 				var(--team-color-sub) 75%,
 				transparent
@@ -216,7 +222,7 @@
 	max-width: 100%;
 	min-width: 0;
 	overflow: auto;
-	background-color: rgba(0,0,0, 0.1);
+	background-color: color-mix(in srgb, var(--team-color) 90%, black);
 	border: solid var(--team-color-sub) var(--bs-border-width);
 	padding: .5rem;
 	border-radius: 50rem;
@@ -291,17 +297,38 @@
 	}
 }
 
-.team-card {
-	height: 100%;
+.team-match-grid {
+	display: grid;
+	grid-auto-rows: 1fr;
+	gap: 1rem;
+}
 
-	.team-match-card {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+.team-match-card {
+	text-decoration: none;
+	color: currentColor;
+	border: solid var(--bs-border-width);
+	padding: 1rem .75rem;
+}
 
-	a {
-		text-decoration: none;
-		color: var(--body-fg);
+.team-squad {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	.team-squad-gk, .team-squad-df, .team-squad-md, .team-squad-fw {
+		border: solid var(--bs-border-width);
+		padding: 1rem;
+		display: grid;
+		row-gap: 1rem;
+		column-gap: .5rem;
+		grid-template-columns: repeat(3, 1fr);
+
+		@media ( width < 576px ) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		@media ( width > 576px ) and ( width <= 768px ) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 }

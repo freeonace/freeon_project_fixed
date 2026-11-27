@@ -32,7 +32,7 @@
 						<td>3</td>
 						<td>22</td>
 						<td>13</td>
-						<td>9</td>
+						<td>+9</td>
 						<td>18</td>
 					</tr>
 				</tbody>
@@ -40,38 +40,8 @@
 		</div>
 	</div>
 
-	<div class="row g-5">
-		<div class="col-12 xl:col-6">
-			<div class="card card-body team-card" href="">
-				<span class="team-title">Last match result</span>
-				<a class="team-match-card gap-5" href="">
-					<span class="fg-1">Comp Name</span>
-					<div class="d-flex gap-2 align-items-center">
-						<div class="d-flex gap-2 align-items-center">
-							<span>Alt</span>
-							<img class="logo-sm" src="...">
-						</div>
-						<span>0-0</span>
-						<div class="d-flex gap-2 align-items-center">
-							<img class="logo-sm" src="...">
-							<span>Alt</span>
-						</div>
-					</div>
-					<div class="badge">Won</div>
-				</a>
-			</div>
-		</div>
-		<div class="col-12 xl:col-6">
-			<div class="card card-body team-card" href="">
-				<span class="team-title">Upcoming match</span>
-				<div class="team-match-card">
-					<p class="info-error">No matches.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row row-cols-1 g-5">
-		<div class="col"></div>
+	<div class="team-match-grid">
+	<?php for ($i=1; $i <= 5; $i++): component('fixture-teams'); ?>
+	<?php endfor; ?>
 	</div>
 </div>
