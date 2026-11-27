@@ -49,7 +49,7 @@ foreach (leagues_by_entity() as $rows) {
 								</div>
 								<div class="d-flex flex-wrap align-items-center gap-3">
 								<?php foreach ($items as [$c, $href]): ?>
-									<a role="button" class="btn-solid btn-sm <?= e(slugify($c['alt'])) ?>" href="<?= e($href) ?>">
+									<a role="button" class="btn btn-sm <?= e(slugify($c['alt'])) ?>" href="<?= e($href) ?>" style="<?= e(league_style($c['color'], $c['subcol'])) ?>">
 										<div class="d-flex align-items-center gap-3">
 											<img src="...">
 											<span><?= e($c['name']) ?></span>

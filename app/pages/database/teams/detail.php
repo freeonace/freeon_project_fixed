@@ -1,5 +1,5 @@
 <?php
-$tabs = ['overview' => 'Overview', 'squad' => 'Squad', 'stats'   => 'Stats', 'history'  => 'History'];
+$tabs = ['overview' => 'Overview', 'squad' => 'Squad', 'stats'   => 'Stats', 'history'  => 'History', 'matches' => 'Matches'];
 
 $teamId = ctype_digit($args[0] ?? '') ? (int)$args[0] : 0;
 $team   = $teamId ? team_by_id($teamId) : null;
@@ -47,11 +47,14 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 							<span class="team-name">
 								<span class="sm:d-none"><?= e($team['alt']) ?></span>
 								<span class="d-none sm:d-inline"><?= e($team['name']) ?></span>
-								<span class="d-none sm:d-inline">(<?= e($team['short']) ?>)</span>
+								<span class="d-none xl:d-inline">(<?= e($team['short']) ?>)</span>
 							</span>
-							<?php if (trim((string)$team['entity']) !== ''): ?>
-							<div class="badge align-self-start"><?= e($team['entity']) ?></div>
-							<?php endif; ?>
+							<div class="team-comp">
+								<?php if (trim((string)$team['entity']) !== ''): ?>
+								<div class="badge badge-comp"><?= e($team['entity']) ?></div>
+								<?php endif; ?>
+								<a class="badge badge-league" href="">Elite League</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -59,30 +62,30 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 				<div class="col-12 md:col align-self-center">
 					<div class="team-profile">
 						<div class="d-flex flex-column">
-							<small class="fg-theme">Stadium</small>
-							<strong class="lh-1"><?= e($team['stadium']) ?></strong>
+							<small class="fg-theme">League position</small>
+							<strong class="fs-lg">6th</strong>
 						</div>
 
 						<div class="d-flex flex-column">
-							<small class="fg-theme">City</small>
-							<strong class="lh-1"><?= e($team['city']) ?></strong>
+							<small class="fg-theme">Matches played</small>
+							<strong class="fs-lg">11</strong>
 						</div>
 
 						<div class="d-flex flex-column">
-							<small class="fg-theme">Founded</small>
-							<strong class="lh-1"><?= e($estYear) ?></strong>
+							<small class="fg-theme">Matches won</small>
+							<strong class="fs-lg">5</strong>
 						</div>
 
 						<div class="d-flex flex-column">
-							<small class="fg-theme">Country</small>
-							<strong class="lh-1"><?= e($team['region']) ?></strong>
+							<small class="fg-theme">Goal scored</small>
+							<strong class="fs-lg">22</strong>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="align-self-center">
-				<ul class="nav nav-pills justify-content-center" aria-label="Team sections">
+			<div class="nav-team" aria-label="Team sections">
+				<ul class="nav">
 				<?php foreach ($tabs as $key => $label): $on = ($key === $tab); ?>
 					<li class="nav-item">
 						<a class="nav-link<?= $on ? ' active' : '' ?>"<?= $on ? ' aria-current="page"' : '' ?> href="<?= e(team_info_url($teamId, $team['alt'], $team['name'], $key === 'overview' ? null : $key)) ?>"><?= e($label) ?></a>
@@ -92,7 +95,7 @@ $age    = $estTs ? (new DateTime('@' . $estTs))->diff(new DateTime())->y : null;
 			</div>
 		</div>
 	</div>
-	<section class="detail lg:container">
+	<section class="detail team-content lg:container">
 		<div class="row gy-9">
 			<div class="col-12 md:col-7 lg:col-7 xl:col-8 order-2 md:order-1">
 				<?php require __DIR__ . "/tabs/$tab.php"; ?>

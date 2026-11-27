@@ -34,8 +34,11 @@
 
 	--gradient: linear-gradient(180deg, color-mix(var(--body-contrast) 15%, transparent),
 										color-mix(var(--body-contrast) 0%, transparent));
-	--bs-bg-body: light-dark(var(--bg-body),
-		color-mix(in srgb, var(--body-contrast) 30%, var(--bg-body)));
+
+	--bs-bg-body: light-dark(
+		color-mix(in srgb, var(--bg-body) 25%, white),
+		color-mix(in srgb, var(--bg-body) 75%, black)
+	);
 
 	--bg-body: var(--body-col);
 	--accent: var(--primary-col);
@@ -164,6 +167,13 @@ html {
 
 .material-symbols-outlined, .material-symbols-rounded {
 	user-select: none;
+}
+
+.card-header, .card-footer {
+	background: light-dark(
+		color-mix(in srgb, var(--bg-body) 94%, var(--bs-gray-500)),
+		color-mix(in srgb, var(--bg-body) 94%, var(--bs-gray-500))
+	);
 }
 
 /* Logo */
@@ -486,7 +496,10 @@ html {
 .info-error {
 	text-align: center;
 	user-select: none;
-	color: var(--bs-bg-4);
+	color: light-dark(
+		color-mix(in srgb, var(--bg-body) 25%, gray),
+		color-mix(in srgb, var(--bg-body) 50%, gray)
+	);
 }
 
 /* Navbar */
@@ -988,6 +1001,16 @@ footer {
 }
 
 /* League Database */
+.leagues .btn {
+	background: var(--comp-color);
+	color: var(--comp-fg);
+	transition: background .2s ease-in-out;
+
+	&:hover {
+		background: rgb(from var(--comp-color) calc(r * 0.75) calc(g * 0.75) calc(b * 0.75));
+	}
+}
+
 .top-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1265,6 +1288,21 @@ footer {
 			color-mix(in srgb, grey 5%, var(--bg-body)),
 			color-mix(in srgb, black 5%, var(--bg-body))
 		);
+	}
+}
+
+/* Tables */
+.table {
+	align-content: center;
+
+	a {
+		text-decoration: none;
+		color: currentColor;
+		transition: color .15s ease-in-out;
+
+		&:hover {
+			color: rgb(from currentColor calc(r * 0.9) calc(g * 0.9) calc(b * 0.9));
+		}
 	}
 }
 
